@@ -86,6 +86,17 @@ namespace CyberTigerLibrary.Extensions
             DateTime result = current.AddDays(offsetDays);
             return result;
         }
+
+        public static DateTime Previous(this DateTime current, DayOfWeek dayOfWeek)
+        {
+            int offsetDays = dayOfWeek - current.DayOfWeek;
+            if (offsetDays >= 0)
+            {
+                offsetDays -= 7;
+            }
+            DateTime result = current.AddDays(offsetDays);
+            return result;
+        }
         public static string OrdinalSuffix(this DateTime datetime)
         {
             int day = datetime.Day;
